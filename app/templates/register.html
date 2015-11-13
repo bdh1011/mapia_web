@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block body %}
+
+<center>
+<div class="signup_box">
+        <h2 class="sign_box_subject" style="font-weight:bold">회원가입</h2>
+	{% if error %}
+	<div class="alert alert-danger" role="alert"><h3 class="error">{{error}}</h3></div>
+	{% endif %}
+        <form accept_charset="UTF-8" action="register" class="new_user" method="post">
+                <div style="margin:0;padding:0;display:inline">
+                        <input name="utf8" type="hidden" value="✓">
+                </div>
+                <div>
+                        <input autofocus="autofocus" class="login_box" id="username" name="username" placeholder="이름" type="text" value="">
+                </div>
+		<br>
+                <div>
+                        <input class="login_box" id="password" name="password" placeholder="비밀번호" type="password">
+                </div>
+		<br>
+                <div>
+                        <input class="input_sign login_box" id="password2" name="password2" placeholder="비밀번호 확인" type="password">
+                </div>
+                <div>
+                        <button class="btn btn-primary" name="commit" style="width:250px;margin-top:7px;margin-bottom:10px;" type="submit" >회원가입</button>
+                </div>
+        </div>
+        </form>
+</div>
+</center>
+<script type="text/javascript" charset="utf-8">
+    $(window).scroll(function() {
+      // Get scroll position
+      var s = $(window).scrollTop(),
+      // scroll value and opacity
+      opacityVal = (s / 150.0);
+      // opacity value 0% to 100%
+      $('.blurred-img').css('opacity', opacityVal);
+    });
+
+    $('input, textarea').placeholder();
+
+    setTimeout(function() {
+      $('#myAlert').fadeOut(1500);
+    }, 4000 );
+</script>
+{% endblock %}

@@ -1,17 +1,14 @@
 # -*- coding: utf-8 -*-
-from app import app,socketio
-from flask import render_template, request, session, url_for, redirect, g, abort, flash
+from app import app
+from flask import render_template, request, session, url_for, redirect, g, abort, flash, jsonify
 import time
 from sqlite3 import dbapi2 as sqlite3
 from hashlib import md5
 from datetime import datetime
 from contextlib import closing
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask.ext.socketio import SocketIO, emit, send
-import simplejson, urllib
-from gevent import monkey; monkey.patch_all()
-from flask import Flask, request, send_file,render_template
-
+import logging
+import json
 #configuration
 DATABASE = 'tmp/goodle.db' 
 DEBUG = True
@@ -56,14 +53,17 @@ def teardown_request(exception):
 	if hasattr(g, 'db'):
 		g.db.close()
 
+@app.route('/')
 @app.route('/index')
 @app.route('/map')
 def map():
 	if not g.user:
 		return redirect(url_for('login'))
-        return render_template('map.html')
+        return render_template('map.html',user=g.user['username'])
 
-
+@app.route('/map-test')
+def maptest():
+	return render_template('map-test.html',user=g.user['username'])
 @app.route('/login',methods=['GET','POST'])
 def login():
 	if g.user:
@@ -78,16 +78,15 @@ def login():
 					request.form['password']):
 			error = 'Invalid password'
 		else:
-			flash(u'로그인')
 			session['user_id'] = user['user_id']
 			return redirect(url_for('map'))
 	return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
-	flash('logout')
 	session.pop('user_id',None)
 	return redirect(url_for('login'))
+
 
 @app.route('/register',methods=['GET','POST'])
 def register():
@@ -108,7 +107,6 @@ def register():
 				username,pw_hash) values (?,?)''',
 				[request.form['username'], generate_password_hash(request.form['password'])])
 			g.db.commit()
-			flash(u'회원가입 완료')
 			return redirect(url_for('login'))
 	return render_template('register.html',error=error)
  	
@@ -116,7 +114,7 @@ def register():
 def write():
     if 'user_id' not in session:
         abort(401)
-    if request.form['text']:
+    else:
         g.db.execute('''insert into 
             contents (user_id, text, lat, lng)
             values (?, ?, ?, ?)''', (session['user_id'], 
@@ -124,25 +122,34 @@ def write():
                                   request.form['lat'],
 				  request.form['lng']))
         g.db.commit()
-        flash('낙서')
-    return redirect(url_for('map'))
+    return 'success'
 
+@app.route('/read',methods=['POST'])
+def read():
+	minX = request.form['minX']
+	minY = request.form['minY']
+	maxX = request.form['maxX']
+	maxY = request.form['maxY']
+	rv = g.db.execute('select * from contents where lat > ? & lat < ? & lng > ? & lng < ?',(minX,maxX,minY,maxY)).fetchall()
+	g.db.commit() 
+	inner_contents = {} 
+	first = True
+	for each in rv:
+		username = g.db.execute('select username from users where user_id = ?',[each[1]]).fetchone()[0]
+		content = {}
+		content['username'] = username
+		content['text'] = each[2]
+		content['time'] = each[3]
+		content['lat'] = each[4]
+		content['lng'] = each[5]
+		inner_contents[each[0]] = content 
+	return json.dumps(inner_contents)
 
-@socketio.on('upload_content',namespace='/map')
-def upload_content(json):
-	print json
-	#g.db.execute('''insert into contents(user_id, text, lat, lng) values(?,?,?,?)''',\
-	#		(session['user_id], json['text'],json['lat'],json['lng']))
-	#g.db.commit()		
+@app.route('/test')
+def test():
+	return render_template('test.html')
 
-@socketio.on('get_content')
-def get_content(json):
-	print json
-	
-@socketio.on('hi')
-def hi(hi):
-	emit('hi')
-
-@socketio.on('connect')
-def connect(json):
-	send(json)
+@app.route('/hello', methods=['POST'])
+def say_hello():
+	print request.form['hello']
+	return jsonify({'text':request.form['hello']}) 

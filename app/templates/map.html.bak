@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Goodle{% endblock %}
+{% block body %}
+
+
+<style>
+._nmap_marker {
+	border-radius: 25px;
+}
+</style>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&amp;key=f38eb43e8f11ce530c885ab7e6274a51"></script>
+
+<!--<img src='GPS.png' style="height: 10px; float: left; -webkit-filter: invert(100%);" onclick="javascript:location.reload()">-->
+
+<button onclick="toggleComment();">Toggle</button>
+<button onclick="writeComment()">글쓰기</button>
+<div id="testMap" style="width: 590px; height: 490px; margin: 0px; padding: 0px; ">
+</div>
+
+
+<script type="text/javascript">
+	var username = '{{user}}';
+</script>
+<script type="text/javascript" src='http://kweb.korea.ac.kr/~zmlz0727/modeling.js"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block body %}
+<center>
+  <div class="sign_box">
+    	<h2 class="sign_box_subject">로그인</h2>
+	{% if error %}
+	<div class="alert alert-danger" style="width:300px;" role="alert">
+	  <strong>{{error}}</strong>
+	</div>
+	{% endif %}
+    	<form accept-charset="UTF-8" action="login" class="new_user" id="new_user" method="post">
+		<div>
+		 	<input autofocus="autofocus" class="login_box" id="username" name="username" placeholder="이 름" type="text" value="">
+		</div>
+		<br>
+	      	<div> 
+			<input class="login_box" id="password" name="password" placeholder="비밀번호" type="password">
+		</div><br>
+		<button class="btn btn-success" name="commit"  type="submit">로그인</button>
+	</form><br/>
+	<a href="{{url_for('register')}}">
+          	<button class="btn btn-primary">회원가입</button>
+        </a>
+
+</p>
+</div>
+</center>
+
+{% endblock %}

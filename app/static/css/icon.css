@@ -1,0 +1,103 @@
+/*General stuff, not specific to this solution*/
+*{
+  box-sizing: border-box;
+  -moz-box-sizing:border-box;
+}
+body {
+  padding:0 140px;
+  font-size:1em;
+  line-height:1em
+}
+@font-face {
+  font-family: 'ldsicon';
+  src: url('http://edge.ldscdn.org/ml/ldsorg/fonts/ldsicon/ldsicon.eot');
+  src: url('http://edge.ldscdn.org/ml/ldsorg/fonts/ldsicon/ldsicon.eot?#iefix') format('embedded-opentype'),
+     url('http://edge.ldscdn.org/ml/ldsorg/fonts/ldsicon/ldsicon.ttf') format('truetype'),
+     url('http://edge.ldscdn.org/ml/ldsorg/fonts/ldsicon/ldsicon.woff') format('woff'),
+		 url('http://edge.ldscdn.org/ml/ldsorg/fonts/ldsicon/ldsicon.svg#ldsRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.icon.icon-search:after,
+.icon-search:before {
+	content:"\2315";
+}
+/*simple styles to see some stuff*/
+span {
+  border:1px solid blue;
+}
+.bigger {
+  font-size:150%;
+}
+.btn{
+  background:#ddd;
+  border:1px solid green;
+  padding:.3em .8em;
+  font-size:inherit;
+  display:inline-block;
+  line-height:100%;
+  /*overflow:visible;*/
+}
+[class^="icon-"]:before,
+[class*=" icon-"]:before,
+[class^="icon-"]:after,
+[class*=" icon-"]:after{
+  background:rgba(0,255,0,.3);
+}
+
+
+
+/*now to the specifics*/
+[class^="icon-"],
+[class*=" icon-"]{
+  display:inline-block;
+  line-height:100%;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: ldsicon;
+  display: inline-block;
+  margin-right:.2em;
+  vertical-align:-7%;
+  line-height:100%;
+}
+[class^="icon-"]:after,
+[class*=" icon-"]:after{
+  font-family:ldsicon;
+}
+.icon {
+  position:relative;
+  /*indent can't be 100% thanks to IE*/
+  text-indent:-99em;
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+  line-height:100%;
+}
+.icon:before {
+  display:none;
+}
+.icon:after {
+  text-indent:0;
+  float:left;
+}
+/*target firefox only, the only one to have problems*/
+@-moz-document url-prefix(){
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    vertical-align:-19%;
+  }
+  .icon{
+    width:1em;
+    -moz-box-sizing:content-box;
+  }
+  .icon:before {
+    float:left;
+    display:block;
+    text-indent:0;
+  }
+  .icon:after {
+    display:none;
+  }
+}
