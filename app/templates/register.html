@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>MAPIA :: Register</title>
   <link rel="stylesheet" href="../static/css/login.css">
+  <script src='../static/js/jquery-1.9.1.min.js'></script>
+  <script src="../static/js/common.js"></script>
   <style>
     #form > p {
       text-align: center;
@@ -39,12 +41,12 @@
       <span class="ia">ia</span>
     </div>
     <div id="form">
-      <input class="id box" type="text" placeholder="아이디">
-      <input class="pw box" type="password" placeholder="비밀번호">
+      <input class="id box" id="register_id" type="text" placeholder="아이디">
+      <input class="pw box" id="register_pw" type="password" placeholder="비밀번호">
       <input class="pwchk box" type="password" placeholder="비밀번호 확인">
-      <input class="nickname box" type="text" placeholder="닉네임">
+      <input class="nickname box" id="register_name" type="text" placeholder="닉네임">
       <p>회원가입시 <a href="#">이용약관</a>에 동의하게 됩니다.</p>
-      <input class="create box" type="button" value="계정 만들기">
+      <input class="create box" id="register_btn" type="button" value="계정 만들기">
     </div>
     <div id="do_login">이미 계정을 갖고 계신가요?
       <span class="login"><a href="#">로그인</a></span>
