@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MAPIA</title>
+  <link rel="stylesheet" href="../static/css/login.css">
+  <style>
+    #do_login {
+      text-align: center;
+      margin-top: 120px;
+      font-size: 21px;
+    }
+
+    #choose_continue {
+      margin-top: 68px;
+    }
+
+    .continue {
+      display: block;
+      margin: 0px auto 22.5px;
+      width: 472.50px;
+      height: 60px;
+
+      border: none;
+      border-radius: 5px;
+
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 22px;
+      color: #ffffff;
+    }
+
+    .continue.fb {
+      background-color: #46629e;
+    }
+
+    .continue.tw {
+      background-color: #50abf1;
+    }
+
+    .continue.ig {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .divline {
+      width: 450px;
+      color: #9b9b9b;
+    }
+
+    .signup {
+      margin-top: 20px;
+
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .signup:hover {
+      background-color: #ff5453;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div id="appname">
+      <span class="map">map</span>
+      <span class="ia">ia</span>
+    </div>
+    <div id="choose_continue">
+      <input class="continue fb" type="button" value="Facebook으로 계속하기">
+      <input class="continue tw" type="button" value="twitter로 계속하기">
+      <input class="continue ig" type="button" value="instagram으로 계속하기">
+      <hr class="divline">
+      <input class="continue signup" type="button" value="계정 만들기">
+    </div>
+    <div id="do_login">이미 계정을 갖고 계신가요?
+      <span class="login"><a href="#">로그인</a></span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/*
+ *  MAPIA login.css
+ *  #ff5453 : main color
+ *  #4a4a4a : greyish brown
+ *  author : Yoon Han
+ */
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face {
+  font-family: 'Gotham Rounded';
+  src: url(../fonts/gothamrnd-medium.svg) format('svg'),
+       url(../fonts/gothamrnd-medium.eot) format('embedded-opentype'),
+       url(../fonts/gothamrnd-medium.woff) format('woff'),
+       url(../fonts/gothamrnd-medium.ttf) format('truetype');
+}
+
+html, body {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #f3f3f3;
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #4a4a4a;
+}
+
+/* visualize div borders for testing */
+/*div {
+  border: 1px solid black;
+}*/
+/* visualize div for testing */
+
+#main {
+  margin: 0px auto;
+  width: 540px;
+  height: 100%;
+}
+
+#appname {
+  margin-top: 100px;
+  text-align: center;
+}
+
+span.map {
+  font-family: 'Gotham Rounded', sans-serif;
+  font-size: 63px;
+  color: #ff5453;
+}
+
+span.ia {
+  margin-left: -5px;
+
+  font-family: 'Gotham Rounded', sans-serif;
+  font-size: 63px;
+  color: #4a4a4a;
+}
+
+#form {
+  margin-top: 30px;
+}
+
+.box {
+  display: block;
+  margin: 13.50px auto;
+  padding-left: 19.50px;
+  width: 360px;
+  height: 81px;
+  border: 1px solid #979797;
+  border-radius: 7.5px;
+
+  font-size: 1.5em;
+}
+
+.login.box {
+  width: 380px;
+  padding-left: 0px;
+  border: 1px solid #ff5453;
+  background-color: #f3f3f3;
+
+  color: #ff5453;
+}
+
+.login.box:hover {
+  background-color: #ff5453;
+  color: #ffffff;
+}
+
+#social_login {
+  margin-top: 80px;
+}
+
+.sns_icon {
+  margin: 0px auto;
+}
+
+.sns_icon td {
+  padding: 0px 40px 0px 40px;
+}
+
+#register {
+  margin-top: 80px;
+  font-size: 21px;
+  text-align: center;
+}
+
+#register:hover {
+  background-color: #ff5453;
+}

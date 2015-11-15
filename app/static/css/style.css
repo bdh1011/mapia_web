@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.contents {
+    border: 1px solid lightgray;
+    overflow: hidden;
+}
+
+.content {
+    
+}
+
+.title {
+    padding: 13px;
+    font-size: 17px;
+    color: #ff5453;
+}
+
+.menubar{
+    height: 48px;
+    
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.menubar ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.menubar a {
+    float: left;
+    width: 25%;
+    height: auto;
+    text-decoration: none;
+    color: #c8c8c8;
+    text-align: center;
+}
+
+.menubar li {
+    display: inline;
+}
+
+.top{
+    height: 53px;
+}
+
+.profile{
+    float: left;
+    padding: 10px;
+    padding-right: 9px;
+}
+
+.top_name{
+    padding-left: 52px;
+    padding-top: 11.7px;
+}
+
+.top_date{
+    padding-left: 52px;
+    padding-bottom: 6px;
+    font-size: 14px;
+}
+
+.text{
+    height: auto; 
+    padding:10px;
+    padding-top: 2px;
+    padding-bottom: 5.6px;
+}
+
+.pic{
+    margin: 0;
+    padding: 0;
+}
+
+.pic img{
+    max-width: 100% ;
+    height: auto;
+}
+
+.like_num{
+    height:27px; 
+    padding-left:10px;
+    padding-top: 7px;
+    color: #9b9b9b;
+}
+
+.like{
+    height: 40px; 
+    border-top: 1px solid lightgray;
+}
+
+ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+a {
+    float: left;
+    width: 33.3%;
+    height: auto;
+    text-decoration: none;
+    padding-top: 13px;
+    padding-bottom: 10px;
+    color: black;
+    text-align: center;
+}
+
+li {
+    display: inline;
+}
+
+.gap {
+    height:6px;
+    background-color: #f2f2f2;
+}
+
+@media (min-width: 600px) {
+    .contents{
+        margin: 0 auto;
+        width: 600px
+    }
+    
+}

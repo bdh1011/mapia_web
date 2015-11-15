@@ -1,30 +1,41 @@
-{% extends "layout.html" %}
-{% block title %}Login{% endblock %}
-{% block body %}
-<center>
-  <div class="sign_box">
-    	<h2 class="sign_box_subject">로그인</h2>
-	{% if error %}
-	<div class="alert alert-danger" style="width:300px;" role="alert">
-	  <strong>{{error}}</strong>
-	</div>
-	{% endif %}
-    	<form accept-charset="UTF-8" action="login" class="new_user" id="new_user" method="post">
-		<div>
-		 	<input autofocus="autofocus" class="login_box" id="username" name="username" placeholder="이 름" type="text" value="">
-		</div>
-		<br>
-	      	<div> 
-			<input class="login_box" id="password" name="password" placeholder="비밀번호" type="password">
-		</div><br>
-		<button class="btn btn-success" name="commit"  type="submit">로그인</button>
-	</form><br/>
-	<a href="{{url_for('register')}}">
-          	<button class="btn btn-primary">회원가입</button>
-        </a>
-
-</p>
-</div>
-</center>
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MAPIA :: Login</title>
+  <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<body>
+  <div id="main">
+    <div id="appname">
+      <span class="map">map</span>
+      <span class="ia">ia</span>
+    </div>
+    
+    <div id="form">
+      <input class="id box" name="id" type="text" placeholder="아이디">
+      <input class="pw box" name="pw" type="password" placeholder="비밀번호">
+      <input class="login box" type="submit" value="로그인">
+    </div>
+    
+    <div id="social_login">
+      <table class="sns_icon">
+        <tr>
+          <td class="fb">
+            <a href=""><img src="../static/icon/drawable-hdpi/post_facebook.png" alt="Facebook"></a>
+          </td>
+          <td class="tw">
+            <a href=""><img src="../static/icon/drawable-hdpi/post_twitter.png" alt="Twitter"></a>
+          </td>
+          <td class="ig">
+            <a href=""><img src="../static/icon/drawable-hdpi/post_instagram.png" alt="Instagram"></a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="register">계정이 없으신가요?
+      <span class="join"><a href="#">가입하기</a></span>
+    </div>
+  </div>
+</body>
+</html>
