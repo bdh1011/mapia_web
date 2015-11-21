@@ -1,6 +1,9 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .contents {
@@ -49,6 +52,26 @@ body {
     width: 100%;
     height: 48px;
     background-color: white;
+    margin: 0;
+    padding: 0:
+}
+
+#inputa {
+    padding: 0;
+    display: inline-block;
+    position: absolute;
+    left: 0; right: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#in {
+    width: 100%;
+    height: 42px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 13px;
 }
 
 #send_btn {
@@ -57,19 +80,13 @@ body {
     width: 48px;
     height: 100%;
     background-color: #ff6f6e;
-    display: table-cell; text-align: center; vertical-align: middle;
-}
-
-#inputa {
-    display: inline-block;
-    height: 100%;
-    position: absolute;
-    left: 0; right: 48px;
-    font-size: 12pt;
-    word-spacing: 1pt;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    padding-top: 6px;
+    padding-left: 7px;
+    display: table-cell; 
+    text-align: center; 
+    vertical-align: middle;
+    border: 1px solid #ff6f6e;
+    
 }
 
 .comment_img {

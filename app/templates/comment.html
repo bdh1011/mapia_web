@@ -5,26 +5,31 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>MAPIA COMMENT</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
-        <link rel="stylesheet" href="../static/css/style2.css">
+        <link rel="stylesheet" href="../static/css/comment.css">
     </head>
     <body>
         <div class="contents">
             <div class="title">
-                <a href="read.html"><img src="arrow_back.png" width="18px" height="18px"/></a> 댓글
+                <a href="/read"><img src="../static/img/arrow_back.png" width="18px" height="18px"/></a> 댓글
             </div>
             <div class="content">
-                <img class="profile" src="picsample.png" width="33px" height="33px">
+                <img class="profile" src="../static/img/picsample.png" width="33px" height="33px">
                 <div class="comment_name">허윤지</div>
                 <div class="comment_content">안녕하세요 컴퓨터학과 허윤지입니다. 안녕하세요 컴퓨터학과 허윤지입니다. 안녕하세요 컴퓨터학과 허윤지입니다. 안녕하세요 컴퓨터학과 허윤지입니다. </div>
                 <div class="comment_date">11/12</div>
             </div>
             <div id="comment_box">
                 <div id="inputa">
-                    <input autofocus="autofocus" name="comment" placeholder="댓글을 입력하세요..." type="text" value="">
+                    <input id="in" autofocus="autofocus" name="comment" placeholder="댓글을 입력하세요..." type="text" value="">
                 </div>
-                <div id="send_btn">
-                    <img src="send.png" width="24px" height="22px"/>
-                </div>
+<!--<input id="inputa" autofocus="autofocus" name="comment" placeholder="댓글을 입력하세요..." type="text" value=""/>-->
+                <button id="send_btn" type="submit">
+                    <img src="../static/img/send.png" width="24px" height="22px"/>
+                </button>
+                
+                <!--<div id="send_btn">
+                    <img src="../static/img/send.png" width="24px" height="22px"/>
+                </div>-->
                 
             </div>
         </div>

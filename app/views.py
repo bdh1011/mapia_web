@@ -30,6 +30,10 @@ def read():
 
 	
 
+@app.route('/tmp', methods=['GET'])
+def tmp():
+	return render_template('tmp.html')
+
 
 @app.route('/register', methods=['GET'])
 def register():
