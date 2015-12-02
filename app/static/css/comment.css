@@ -21,7 +21,7 @@ body {
     font-size: 17px;
     background-color: #ff5453;
     color: white;
-    
+
     -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
@@ -98,5 +98,5 @@ body {
         margin: 0 auto;
         width: 600px
     }
-    
+
 }
