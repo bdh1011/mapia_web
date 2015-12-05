@@ -1,0 +1,132 @@
+/*
+ *  MAPIA layout.css
+ *  #ff5453 : main color
+ *  #4a4a4a : greyish brown
+ *  author : Yoon Han
+ */
+
+@import url(font.css);
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #f3f3f3;
+}
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+.gmnoprint a, .gmnoprint span, .gm-style-cc, .gm-style-mtc {
+    display:none;
+}
+
+
+/*for testing*/
+/*div {
+  border: 1px solid #d8d8d8;
+}*/
+
+/*for testing*/
+
+div#main {
+  width: 540px;
+  height: 100%;
+  margin: 0px auto;
+  border: 1px solid #d8d8d8;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+div#top_bar {
+  width: 100%;
+  height: 72px;
+  margin: 0px;
+  background-color: #ff5453;
+
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.3);
+  position: relative;                        /* google map z-index problem */
+  z-index: 1;
+}
+
+table.top_icon {
+  width: 100%;
+  margin: 0;
+  padding-top: 16px;
+}
+
+table.top_icon td {
+  width: 33%;
+  text-align: center;
+  font-size: 26px;
+  color: white;
+}
+
+table.top_icon img.first {
+  float: left;
+  margin-left: 20px;
+}
+
+table.top_icon img.last {
+  float: right;
+  margin-right: 20px;
+}
+
+div#wrapper {
+  position: relative;
+}
+
+div#map {
+  width: 100%;
+  height: 525px;
+
+  z-index: 0;
+}
+
+div#get_loc {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+}
+
+img.gps:hover {
+  cursor: pointer;  
+}
+
+div#choose_loc {
+  height: 106px;
+  background-color: white;
+}
+
+table.content_wrap {
+  height: 100%;
+}
+
+.place_icon {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+p.choose_this_loc {
+  font-size: 25px;
+  color: #ff5453;
+
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+p.current_loc {
+  font-size: 20px;
+  color: #9b9b9b;
+
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+#near_place {
+  width: 100%;
+  height: auto;
+  background-color: #f1f1f1;
+}

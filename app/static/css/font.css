@@ -1,0 +1,13 @@
+/*
+ * for general purpose font use.
+ *
+ */
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face {
+  font-family: 'Gotham Rounded';
+  src: url(../fonts/gothamrnd-medium.svg) format('svg'),
+       url(../fonts/gothamrnd-medium.eot) format('embedded-opentype'),
+       url(../fonts/gothamrnd-medium.woff) format('woff'),
+       url(../fonts/gothamrnd-medium.ttf) format('truetype');
+}

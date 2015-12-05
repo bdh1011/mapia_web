@@ -12,7 +12,7 @@ import json
 
 @app.route('/', methods=['GET'])
 def enter():
-	return render_template('enter.html')
+    return render_template('enter.html')
 
 
 @app.route('/login', methods=['GET'])
@@ -24,15 +24,11 @@ def login():
 def read():
 	return render_template('read.html')
 
-<<<<<<< Updated upstream
-	
 
 @app.route('/tmp', methods=['GET'])
 def tmp():
 	return render_template('tmp.html')
 
-=======
->>>>>>> Stashed changes
 
 @app.route('/register', methods=['GET'])
 def register():
@@ -42,3 +38,7 @@ def register():
 @app.route('/comment', methods=['GET'])
 def comment():
 	return render_template('comment.html')
+
+@app.route('/map', methods=['GET'])
+def map():
+	return render_template('map.html')

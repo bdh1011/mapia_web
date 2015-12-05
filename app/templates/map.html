@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MAPIA :: map </title>
+  <link rel="stylesheet" href="../static/css/layout.css">
+  <script src="../static/js/jquery-1.9.1.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <div id="main">
+    <div id="top_bar">
+      <table class="top_icon">
+        <tr>
+          <td>
+            <img class="first" src="../static/icon/drawable-hdpi/close.png">
+          </td>
+          <td>핀 추가</td>
+          <td>
+            <img class="last" src="../static/icon/drawable-hdpi/search.png">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="wrapper">
+      <div id="map">
+      </div>
+      <div id="get_loc">
+        <img class="gps"
+             src="../static/icon/drawable-hdpi/oval_1_copy_2_gps_fixed.png">
+      </div>
+    </div>
+    <div id="choose_loc">
+      <table class="content_wrap">
+        <tr>
+          <td>
+            <img class="place_icon"
+                 src="../static/icon/drawable-hdpi/place.png">
+          </td>
+          <td>
+            <p class="choose_this_loc">이 위치 선택</p>
+            <p class="current_loc">대한민국 서울특별시 성북구 안암동</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="near_place">
+      dd
+    </div>
+  </div>
+  <script src="../static/js/map.js" charset="utf-8"></script>
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATQY0fT1ZxPtl3KHPfw4GLQwKFfRKtjg0&callback=initMap&language=ko">
+  </script>
+</body>
+</html>
