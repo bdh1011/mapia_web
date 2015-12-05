@@ -20,11 +20,22 @@ def login():
 	return render_template('login.html')
 
 
+<<<<<<< Updated upstream
 @app.route('/read', methods=['GET'])
 def read():
 	return render_template('read.html')
 
 <<<<<<< Updated upstream
+=======
+@app.route('/enter', methods=['GET'])
+def enter():
+	return render_template('enter.html')
+
+
+@app.route('/read', methods=['GET'])
+def read():
+	return render_template('read.html')
+>>>>>>> Stashed changes
 	
 
 @app.route('/tmp', methods=['GET'])
@@ -38,7 +49,16 @@ def tmp():
 def register():
 	return render_template('register.html')
 
+<<<<<<< Updated upstream
 
 @app.route('/comment', methods=['GET'])
 def comment():
 	return render_template('comment.html')
+=======
+	
+@app.route('/comment/<post_id>', methods=['GET'])
+def comment(post_id=None):
+	return render_template('comment.html',post_id=post_id)
+
+	
+>>>>>>> Stashed changes

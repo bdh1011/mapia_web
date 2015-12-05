@@ -98,6 +98,12 @@ body {
     padding-left:10px;
     padding-top: 7px;
     color: #9b9b9b;
+    text-decoration:none; 
+}
+
+#numbers{
+    color: #9b9b9b;
+    text-decoration:none; 
 }
 
 .like{
@@ -113,14 +119,14 @@ ul {
     list-style-type: none;
 }
 
-a {
+.like a {
     float: left;
     width: 33.3%;
     height: auto;
     text-decoration: none;
     padding-top: 13px;
     padding-bottom: 10px;
-    color: black;
+    
     text-align: center;
 }
 

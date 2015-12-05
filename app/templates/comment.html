@@ -4,33 +4,99 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>MAPIA COMMENT</title>
-        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <script src='../static/js/jquery-1.9.1.min.js'></script>
+        <!--<script src="../static/js/comment.js"></script>-->
         <link rel="stylesheet" href="../static/css/comment.css">
+        <script>
+            $(document).ready(function(){
+                var post_id = {{post_id}};
+                $.ajax({ 
+                    type:"GET", 
+                    url: 'http://mapsns.com/api/comments?post_id='+post_id, 
+                    contentType: "application/json; charset=utf-8", 
+                    dataType: "json",
+                    headers: {
+                        "Authorization": "Basic 1"
+                    },
+                    success: function(data){
+                        console.log(data);
+                        var len = data.result.length;
+                        console.log(len);
+                        var html = '';
+                        if(len > 0){
+                            for(var i=0; i<len; i++){
+                                var date = dateToString(data.result[i].timestamp);
+                                html += '<div class="content">';
+                                if(data.result[i].hasOwnProperty("profile_pic")){
+                                    html += '   <img class="profile" src="'+data.result[i].profile_pic + '" style="width:33px;height:33px">'
+                                }
+                                html += '   <div class="comment_name">'+data.result[i].name+'</div>';
+                                html += '   <div class="comment_content">'+data.result[i].content+'</div>';
+                                html += '   <div class="comment_date">'+date+'</div>';
+                                html += '</div>';
+                            }
+                        } else {
+                            html += '<div class="content"></div>';
+                        }
+                        $('#top').append(html);
+                    },
+                    failure: function(errMsg) { 
+                        alert("errMsg");
+                        console.log("fail");
+                    }
+                });
+    
+                $('#send_btn').click(function(){
+                    var comment_content = $('#comment_content').val();
+                    $.ajax({ 
+                        type:"POST", 
+                        url: 'http://mapsns.com/api/comments', 
+                        contentType: "application/json; charset=utf-8", 
+                        dataType: "json",
+                        headers: {
+                            "Authorization": "Basic 1"
+                        },
+                        data: JSON.stringify({"post_id":post_id,"content":comment_content}), 
+                        success: function(data){
+                            location.reload();
+                        }, 
+                        failure: function(errMsg) { 
+                            alert("errMsg");
+                            console.log("fail");
+                        }
+                    });
+                });
+
+            });
+
+            function dateToString(s)  {
+                s = s.split(/[-: ]/);
+                var hour = "";
+                if(s[3] > 12){
+                    s[3] = s[3] - 12;
+                    hour = '오후 ' + s[3];
+                } else {
+                    hour = '오전 ' + s[3];
+                }
+                return (s[1]-1) +'월 '+ s[2] +'일 ' + hour +':'+ s[4];
+            }
+        </script>
     </head>
     <body>
         <div class="contents">
-            <div class="title">
-                <a href="/read"><img src="../static/img/arrow_back.png" width="18px" height="18px"/></a> 댓글
-            </div>
-            <div class="content">
-                <img class="profile" src="../static/img/picsample.png" width="33px" height="33px">
-                <div class="comment_name">허윤지</div>
-                <div class="comment_content">안녕하세요 컴퓨터학과 허윤지입니다. 안녕하세요 컴퓨터학과 허윤지입니다. 안녕하세요 컴퓨터학과 허윤지입니다. 안녕하세요 컴퓨터학과 허윤지입니다. </div>
-                <div class="comment_date">11/12</div>
+            
+                <div class="title">
+                    <a href="/read"><img src="../static/img/arrow_back.png" style="width:18px; height:18px;"/></a> 댓글
+                </div>
+            <div id="top">
             </div>
             <div id="comment_box">
                 <div id="inputa">
-                    <input id="in" autofocus="autofocus" name="comment" placeholder="댓글을 입력하세요..." type="text" value="">
+                    <input id="comment_content" autofocus="autofocus" name="comment" placeholder="댓글을 입력하세요..." type="text" value="">
                 </div>
-<!--<input id="inputa" autofocus="autofocus" name="comment" placeholder="댓글을 입력하세요..." type="text" value=""/>-->
                 <button id="send_btn" type="submit">
                     <img src="../static/img/send.png" width="24px" height="22px"/>
                 </button>
-                
-                <!--<div id="send_btn">
-                    <img src="../static/img/send.png" width="24px" height="22px"/>
-                </div>-->
-                
             </div>
         </div>
     </body>
