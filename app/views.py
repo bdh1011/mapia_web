@@ -24,6 +24,10 @@ def login():
 def read():
 	return render_template('read.html')
 
+@app.route('/enter', methods=['GET'])
+def enter():
+	return render_template('enter.html')
+
 
 @app.route('/tmp', methods=['GET'])
 def tmp():
@@ -42,3 +46,8 @@ def comment():
 @app.route('/map', methods=['GET'])
 def map():
 	return render_template('map.html')
+
+@app.route('/comment/<post_id>', methods=['GET'])
+def comment(post_id=None):
+	return render_template('comment.html',post_id=post_id)
+
